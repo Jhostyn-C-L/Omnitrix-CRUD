@@ -63,6 +63,16 @@ namespace OmnitrixCRUD.Controllers
 
                 return NoContent();
             }
+        [HttpGet("search/{nombre}")]
+        public ActionResult<List<Alien>> Search(string nombre)
+        {
+            var results = aliens
+                .Where(a => a.Nombre.Contains(nombre,
+                    StringComparison.OrdinalIgnoreCase))
+                .ToList();
+
+            return Ok(results);
         }
+    }
     }
 
