@@ -1,0 +1,6 @@
+@OmnitrixCRUD_HostAddress = http://localhost:5202
+
+GET {{OmnitrixCRUD_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
