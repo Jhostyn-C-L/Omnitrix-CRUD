@@ -30,6 +30,12 @@ namespace OmnitrixCRUD.Controllers
             [HttpPost]
             public ActionResult<Alien> Create(Alien alien)
             {
+                if (aliens.Any(a => a.Nombre.Equals(
+                alien.Nombre, StringComparison.OrdinalIgnoreCase)))
+                {
+                    return Conflict("An alien with this name already exists.");
+                }
+
                 alien.Id = nextId++;
                 aliens.Add(alien);
 
